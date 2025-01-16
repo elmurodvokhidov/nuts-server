@@ -4,7 +4,7 @@ const upload = require("../lib/multer");
 
 // Rasm yuklash
 router.post("/image", upload.single('image'), (req, res) => {
-    res.status(201).json(`${process.env.PRODUCTION}/images/uploads/${req.file.filename}`);
+    res.status(201).json(`${process.env.PRODUCTION}/uploads/images/${req.file.filename}`);
 });
 
 // Video yuklash
