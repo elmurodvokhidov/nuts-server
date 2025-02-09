@@ -8,14 +8,14 @@ router.post("/", async (req, res) => {
     const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-            user: process.env.EMAIL,
+            user: process.env.SENDER_EMAIL,
             pass: process.env.EMAIL_PASS
         },
     });
 
     const mailOptions = {
         from: email,
-        to: "elmurodvkh@gmail.com",
+        to: process.env.RECEIVER_EMAIL,
         subject: `${subject} - ${name}`,
         text: message,
     };
