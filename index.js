@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const path = require("path");
 const app = express();
 require("dotenv").config();
 
@@ -9,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // static files route
-app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // routes
 app.get("/", (_, res) => res.send("Hello world!"));
